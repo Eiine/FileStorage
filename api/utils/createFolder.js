@@ -4,7 +4,11 @@ import {uploadPath} from "../utils/alias.js"
 
 const createFolder= async(nameFolder)=> {
   const newFolder = path.join(uploadPath, nameFolder);
-
+  
+  if(fs.existsSync(newFolder)){
+      return newFolder
+  }
+  
   try {
     await fs.mkdirSync(newFolder);
     console.log('Carpeta creada exitosamente.');

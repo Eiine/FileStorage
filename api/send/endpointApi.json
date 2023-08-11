@@ -16,5 +16,14 @@
       "POST"
     ],
     "data": {}
+  },
+  {
+    "url": "http://localhost:3000",
+    "path": "/getImage/:user/:name",
+    "description": "",
+    "methods": [
+      "GET"
+    ],
+    "data": {}
   }
 ]
