@@ -19,7 +19,7 @@
   },
   {
     "url": "http://localhost:3000",
-    "path": "/getImage/:user/:name",
+    "path": "/getImage/:user/:name/:height?/:width?",
     "description": "",
     "methods": [
       "GET"
