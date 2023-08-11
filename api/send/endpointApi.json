@@ -1,0 +1,20 @@
+[
+  {
+    "url": "http://localhost:3000",
+    "path": "/fileUpload",
+    "description": "",
+    "methods": [
+      "GET"
+    ],
+    "data": {}
+  },
+  {
+    "url": "http://localhost:3000",
+    "path": "/fileUimage",
+    "description": "",
+    "methods": [
+      "POST"
+    ],
+    "data": {}
+  }
+]
