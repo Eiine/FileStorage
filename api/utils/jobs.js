@@ -3,7 +3,8 @@ import fs from "fs";
 import path from "path";
 import { uploadPath } from "./alias.js";
 
-const jobs = () => {
+//Server clean last 15 min
+const jobs = async() => {
   let job1 = cron.schedule('*/15 * * * *', () => {
     fs.readdir(uploadPath, (err, folders) => {
       if (err) throw err;
@@ -15,14 +16,15 @@ const jobs = () => {
           fs.rm(folderPath, { recursive: true }, err => {
             if (err) throw err;
             console.log(`Folder ${folder} Delete.`);
+            console.log("Server Clear");
           });
         }
       }
     });
-    console.log("Server Clear");
   });
 
-  job1.start();
+   job1.start();
+  
 };
 
 export { jobs };

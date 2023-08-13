@@ -7,6 +7,9 @@ const createFolder= async(nameFolder,user)=> {
   
   if (user) {
     let folderUser=path.join(uploadPath,user,nameFolder)
+    if(fs.existsSync(folderUser)){
+      return folderUser
+  }
     await fs.mkdirSync(folderUser);
     return folderUser
   }

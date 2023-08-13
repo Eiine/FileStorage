@@ -4,7 +4,7 @@
     "path": "/fileUpload",
     "description": "",
     "methods": [
-      "GET"
+      "POST"
     ],
     "data": {}
   },
@@ -23,6 +23,24 @@
     "description": "",
     "methods": [
       "GET"
+    ],
+    "data": {}
+  },
+  {
+    "url": "http://localhost:3000",
+    "path": "/getFile/:user/:name",
+    "description": "",
+    "methods": [
+      "GET"
+    ],
+    "data": {}
+  },
+  {
+    "url": "http://localhost:3000",
+    "path": "/VideoUpload",
+    "description": "",
+    "methods": [
+      "POST"
     ],
     "data": {}
   }

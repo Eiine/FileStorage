@@ -1,11 +1,9 @@
 import { Router } from "express";
-
+import {fileUpload} from "../controller/fileUpload.js"
 const router=Router();
 
 
-router.get("/", (re,res)=>{
-    res.send("Hola desde el server de miguel")
-})
+router.post("/",fileUpload )
 
 
 

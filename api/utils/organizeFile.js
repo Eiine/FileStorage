@@ -1,6 +1,6 @@
 
 
-const organizeImage=(pathfolderImage,file)=>{
+const organizeFile=(pathfolderImage,file)=>{
 
     file.mv(pathfolderImage,(err)=>{
         if(err){
@@ -11,4 +11,4 @@ const organizeImage=(pathfolderImage,file)=>{
 
 
 
-export {organizeImage}
+export {organizeFile}
