@@ -2,6 +2,7 @@ import express from "express"
 import routerGeneral from "./route/index.js"
 import fileUpload from "express-fileupload";
 import dotenv from "dotenv"
+import cors from "cors"
 import {createJsonApi,saveQueryBack} from "send-http-axios-doc"
 import {rootPath, uploadPath} from "./utils/alias.js"
 import { garbageCollector } from "./utils/garbageCollector.js";
@@ -14,7 +15,7 @@ const port=3000
 //Config Server
 app.use(express.static("send"))
 app.use(express.json())
-
+app.use(cors("*"))
 //Middlewares
 app.use(fileUpload({
     useTempFiles : true,
