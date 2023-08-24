@@ -10,6 +10,9 @@ const fileUpload=async(req,res)=>{
  const user=uuidv4();
  const {file}=req.files
  
+ if(!file){
+       return res.status(422).send({message: "You need send file."})
+   }
  
  let pathFolder= await createFolder(user)
         let pathfolderFile=path.join(pathFolder, file.name="archivo"+path.extname(file.name))

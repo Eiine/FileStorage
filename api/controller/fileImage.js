@@ -18,6 +18,9 @@ const uploadImage=async (req,res)=>{
     
     try{
     //clear function error file
+    if(!file){
+        return res.status(422).send({message: "You need send image file."})
+    }
     if(!extencion){
         
         garbageCollector()
