@@ -6,7 +6,7 @@ const reziseImage=async(imagePath,height,width,user)=>{
   try {
     const resizedImageBuffer = await sharp(imagePath)
       .resize(width, height,{
-        fit:"cover"
+        fit:"contain"
       })
       .toBuffer();
         let folderTemp=await createFolder("temp",user)
