@@ -4,7 +4,8 @@ import {organizeFile  } from "../utils/organizeFile.js";
 import {uploadPath} from "../utils/alias.js"
 import path from "path"
 import fs from 'fs';
-
+import dotenv from "dotenv"
+dotenv.config()
 const fileUpload=async(req,res)=>{
  const user=uuidv4();
  const {file}=req.files
@@ -14,7 +15,7 @@ const fileUpload=async(req,res)=>{
         let pathfolderFile=path.join(pathFolder, file.name="archivo"+path.extname(file.name))
         //send img folder
         organizeFile(pathfolderFile,file)
-        res.status(200).send({url:`http://localhost:3000/getFile/${user}/${file.name}`})
+        res.status(200).send({url:`${process.env.URL_BACK}/getFile/${user}/${file.name}`})
 }
 
 

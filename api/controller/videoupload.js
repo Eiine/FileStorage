@@ -5,7 +5,8 @@ import { organizeFile } from "../utils/organizeFile.js";
 import { v4 as uuidv4 } from 'uuid';
 import path from "path";
 import fs from "fs";
-
+import dotenv from "dotenv"
+dotenv.config()
 const videoUpload=async(req,res)=>{
  
     const {file}=req.files;

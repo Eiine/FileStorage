@@ -6,7 +6,8 @@ import {garbageCollector} from "../utils/garbageCollector.js"
 import { v4 as uuidv4 } from 'uuid';
 import fs from "fs"
 import path from "path"
-
+import dotenv from "dotenv"
+dotenv.config()
 
 const uploadImage=async (req,res)=>{
     
@@ -30,7 +31,7 @@ const uploadImage=async (req,res)=>{
         //send img folder
         organizeFile(pathfolderImage,file)
         
-        res.status(200).send({url:`http://localhost:3000/getImage/${user}/${file.name}`})
+        res.status(200).send({url:`${process.env.URL_BACK}/getImage/${user}/${file.name}`})
     } catch (error) {
         console.log(error);
         garbageCollector()
