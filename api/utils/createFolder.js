@@ -4,7 +4,7 @@ import {uploadPath} from "../utils/alias.js"
 
 const createFolder= async(nameFolder,user)=> {
   const newFolder = path.join(uploadPath, nameFolder);
-  
+  try{
   if (user) {
     let folderUser=path.join(uploadPath,user,nameFolder)
     if(fs.existsSync(folderUser)){
@@ -18,7 +18,7 @@ const createFolder= async(nameFolder,user)=> {
       return newFolder
   }
   
-  try {
+  
     await fs.mkdirSync(newFolder);
     console.log('Carpeta creada exitosamente.');
     return newFolder;  // Retorna la ruta de la carpeta creada

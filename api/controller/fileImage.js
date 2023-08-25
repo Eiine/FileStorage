@@ -9,22 +9,22 @@ import path from "path"
 import dotenv from "dotenv"
 dotenv.config()
 
+
 const uploadImage=async (req,res)=>{
     
     let user=uuidv4();
-    let {file}=req.files
-    let extencionSafe=[".jpg",".jpeg",".png",".WebP","tiff","gif"]
-    let extencion=extencionSafe.includes(path.extname(file.name))
-    
-    try{
-    //clear function error file
-    if(!file){
+    if(!req.files || !req.files.file){
         return res.status(422).send({message: "You need send image file."})
     }
+    let file=req.files.file
+    let extencionSafe=[".jpg",".jpeg",".png",".WebP","tiff","gif"]
+    let extencion=extencionSafe.includes(path.extname(file.name))
+    try{
+    //clear function error file
     if(!extencion){
         
         garbageCollector()
-        return res.status(422).send({message: "The image cannot be loaded."})
+        return res.status(422).send({message: "The image cannot be loaded for extencion."})
     }
     
         
