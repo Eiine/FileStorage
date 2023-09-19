@@ -1,26 +1,31 @@
-import sharp from "sharp"
-import {createFolder} from "../utils/createFolder.js"
-import fs from "fs"
+import Jimp from "jimp";
+import { createFolder } from "../utils/createFolder.js";
 import path from "path";
-const reziseImage=async(imagePath,height,width,user)=>{
+
+const resizeImage = async (imagePath, height, width, user) => {
   try {
-    const resizedImageBuffer = await sharp(imagePath)
-      .resize(width, height,{
-        fit:"contain"//filtro ajusta imagen
-      })
-      .toBuffer();
-        let folderTemp=await createFolder("temp",user)
-        let extencion=path.extname(imagePath)
-         const outputPath = path.join(folderTemp,"image"+extencion)
-         await sharp(resizedImageBuffer).toFile(outputPath);
-        return outputPath
+    // Leer la imagen con Jimp
+    const image = await Jimp.read(imagePath);
+
+    // Redimensionar la imagen con Jimp
+    await image.resize(width, height);
+
+    // Crear la carpeta temporal
+    let folderTemp = await createFolder("temp", user);
+
+    // Obtener la extensión de la imagen
+    const extension = path.extname(imagePath);
+
+    // Crear la ruta de salida para la imagen redimensionada
+    const outputPath = path.join(folderTemp, "image" + extension);
+
+    // Guardar la imagen redimensionada
+    await image.writeAsync(outputPath);
+
+    return outputPath;
   } catch (error) {
-    console.log(error.message);
+    console.error(error.message);
   }
-    
-}
+};
 
-
-
-
-export{reziseImage}
+export { resizeImage };
