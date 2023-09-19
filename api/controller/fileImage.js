@@ -14,9 +14,11 @@ const uploadImage = async (req, res) => {
   if (!req.files || !req.files.file) {
     return res.status(422).send({ message: "You need send image file." });
   }
+  console.log(req.files);
   let file = req.files.file;
   let extencionSafe = [".jpg", ".jpeg", ".png", ".WebP", "tiff", "gif"];
   let extencion = extencionSafe.includes(path.extname(file.name));
+  console.log(extencion);
   try {
     //clear function error file
     if (!extencion) {
@@ -27,11 +29,12 @@ const uploadImage = async (req, res) => {
     }
 
     let pathFolder = await createFolder(user);
+    console.log(pathFolder);
     let pathfolderImage = path.join(
       pathFolder,
       (file.name = "imagen" + path.extname(file.name))
     );
-
+    console.log(pathfolderImage);
     //send img folder
     organizeFile(pathfolderImage, file);
 
