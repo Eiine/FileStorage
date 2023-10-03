@@ -1,6 +1,15 @@
 [
   {
     "url": "http://localhost:3000",
+    "path": "/wakeup",
+    "description": "",
+    "methods": [
+      "POST"
+    ],
+    "data": {}
+  },
+  {
+    "url": "http://localhost:3000",
     "path": "/fileUpload",
     "description": "",
     "methods": [
