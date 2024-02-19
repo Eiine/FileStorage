@@ -169,7 +169,7 @@ console.log(selectedData.data);
 
 dataH.value = JSON.stringify(selectedData.data)
 methodH.value = selectedData.methods[0].toLowerCase()
-urlH.value = selectedData.url
+urlH.value = window.location.href.replace(/\/[^\/]+\/[^\/]+\/?$/, "/")
 pathH.value = selectedData.path
 tokenH.value = ""
 nameH.value=selectedData.path.split("/")[1]
